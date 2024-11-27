@@ -1,0 +1,32 @@
+{% extends 'website/base.html' %}
+
+{% block content %}
+<article class="blog-detail">
+    <h1>{{ post.title }}</h1>
+    <p><strong>Author:</strong> {{ post.author }} | <strong>Date:</strong> {{ post.created_at|date:"F j, Y" }}</p>
+    <div class="blog-content">
+        {{ post.content|safe }}
+    </div>
+    <a href="{% url 'blog_list' %}" class="back-to-list">Back to Blog</a>
+</article>
+<section class="comments">
+    <h3>Comments</h3>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="content" placeholder="Your Comment" required></textarea>
+        <button type="submit">Post Comment</button>
+    </form>
+
+    <div class="comment-list">
+        {% for comment in comments %}
+        <div class="comment">
+            <p><strong>{{ comment.name }}</strong> ({{ comment.created_at|date:"F j, Y" }})</p>
+            <p>{{ comment.content }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

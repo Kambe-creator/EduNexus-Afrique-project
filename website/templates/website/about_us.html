@@ -1,0 +1,43 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="about-us">
+    <div class="container">
+        <h1>About Us</h1>
+        <p>Welcome to EduNexus Afrique! We are committed to bridging the gap in education through technology and innovation.</p>
+        <hr>
+
+        <h2>Our Mission</h2>
+        <p>To empower communities through accessible, innovative, and impactful educational resources.</p>
+
+        <h2>Our Vision</h2>
+        <p>To create a world where education is inclusive, equitable, and universally accessible.</p>
+
+        <h2>Our Core Values</h2>
+        <ul>
+            <li>Innovation</li>
+            <li>Collaboration</li>
+            <li>Inclusivity</li>
+            <li>Excellence</li>
+        </ul>
+
+        <h2>Our Story</h2>
+        <p>EduNexus Afrique was founded with the belief that education is the cornerstone of progress. Starting as a local initiative, we've grown to serve communities across regions with tailored solutions in education and technology.</p>
+        
+        <h2>Meet Our Team</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="{% static 'images/team_member_1.jpg' %}" alt="Team Member">
+                <h3>John Doe</h3>
+                <p>Founder & CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'images/team_member_2.jpg' %}" alt="Team Member">
+                <h3>Jane Smith</h3>
+                <p>Head of Operations</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% block content %}
+<section class="contact-us">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you. Please fill out the form below or reach out to us directly.</p>
+
+    <div class="contact-container">
+        <div class="contact-form">
+            <form method="post">
+                {% csrf_token %}
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><strong>Address:</strong> 123 EduNexus Street, Nairobi, Kenya</p>
+            <p><strong>Phone:</strong> +254 700 123 456</p>
+            <p><strong>Email:</strong> info@edunexus.com</p>
+
+            <h2>Follow Us</h2>
+            <div class="social-links">
+                <a href="#"><img src="{% static 'images/facebook-icon.png' %}" alt="Facebook"></a>
+                <a href="#"><img src="{% static 'images/twitter-icon.png' %}" alt="Twitter"></a>
+                <a href="#"><img src="{% static 'images/instagram-icon.png' %}" alt="Instagram"></a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
